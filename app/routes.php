@@ -19,16 +19,44 @@ Route::get('/', function()
 Route::get('/get', function()
 {
 	$followings = User::find(2)->followings()->with('userprofile')->get();
+
     var_dump($followings->toArray());
+
     return View::make('followings', compact('followings'));
 });
 
-Route::get('/paginate', function()
+Route::get('/paginateone', function()
 {
     $followings = User::find(2)->followings()->with('userprofile')->paginate(1);
+
     foreach ($followings as $following)
     {
         var_dump($following->toArray());
     }
+
+    return View::make('followingspaginate', compact('followings'));
+});
+
+Route::get('/paginateonenoeager', function()
+{
+    $followings = User::find(2)->followings()->paginate(1);
+
+    foreach ($followings as $following)
+    {
+        var_dump($following->toArray());
+    }
+
+    return View::make('followingspaginate', compact('followings'));
+});
+
+Route::get('/paginate', function()
+{
+    $followings = User::find(2)->followings()->paginate();
+
+    foreach ($followings as $following)
+    {
+        var_dump($following->toArray());
+    }
+
     return View::make('followingspaginate', compact('followings'));
 });

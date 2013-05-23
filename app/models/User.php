@@ -5,6 +5,8 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
+	protected $fillable = ['email'];
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -49,4 +51,18 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->email;
 	}
 
+	public function followers()
+    {
+        return $this->belongsToMany('User', 'relationships', 'followed_id', 'follower_id');
+    }
+
+    public function followings()
+    {
+        return $this->belongsToMany('User', 'relationships', 'follower_id', 'followed_id');
+    }
+
+    public function userprofile()
+    {
+        return $this->hasOne('Userprofile', 'user_id');
+    }
 }

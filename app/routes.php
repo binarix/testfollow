@@ -13,5 +13,17 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+    return View::make('hello');
+});
+
+Route::get('/get', function()
+{
+	$followings = User::find(2)->followings()->with('userprofile')->get();
+    return View::make('followings', compact('followings'));
+});
+
+Route::get('/paginate', function()
+{
+    $followings = User::find(2)->followings()->with('userprofile')->paginate(1);
+    return View::make('followingspaginate', compact('followings'));
 });

@@ -23,3 +23,7 @@
 <p>
     <a href="paginate">Followings using just paginate() no eager loading</a>
 </p>
+
+<p>
+    <a href="paginaterelationship">Accessing using relationship->followed</a>
+</p>

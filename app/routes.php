@@ -60,3 +60,9 @@ Route::get('/paginate', function()
 
     return View::make('followingspaginate', compact('followings'));
 });
+
+Route::get('/paginaterelationship', function()
+{
+    $relationships = Relationship::with('followed.userProfile')->where('follower_id', '=', 2)->paginate(1);
+    return View::make('relationshipspaginate', compact('relationships'));
+});

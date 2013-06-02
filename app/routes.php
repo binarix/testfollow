@@ -18,7 +18,7 @@ Route::get('/', function()
 
 Route::get('/get', function()
 {
-	$followings = User::find(2)->followings()->with('userprofile')->get();
+	$followings = User::find(2)->followings()->with('userProfile')->get();
 
     var_dump($followings->toArray());
 
@@ -27,7 +27,7 @@ Route::get('/get', function()
 
 Route::get('/paginateone', function()
 {
-    $followings = User::find(2)->followings()->with('userprofile')->paginate(1);
+    $followings = User::find(2)->followings()->with('userProfile')->paginate(1);
 
     foreach ($followings as $following)
     {

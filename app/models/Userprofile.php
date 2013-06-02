@@ -1,6 +1,6 @@
 <?php
 
-class Userprofile extends Eloquent
+class UserProfile extends Eloquent
 {
     protected $fillable = ['user_id', 'name'];
 

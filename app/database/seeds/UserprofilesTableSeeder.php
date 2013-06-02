@@ -1,27 +1,27 @@
 <?php
 
-class UserprofilesTableSeeder extends Seeder {
+class UserProfilesTableSeeder extends Seeder {
 
     public function run()
     {
-        DB::table('userprofiles')->delete();
+        DB::table('user_profiles')->delete();
 
-        Userprofile::create([
+        UserProfile::create([
             'user_id' => 1,
             'name' => 'one'
         ]);
 
-        Userprofile::create([
+        UserProfile::create([
             'user_id' => 2,
             'name' => 'two'
         ]);
 
-        Userprofile::create([
+        UserProfile::create([
             'user_id' => 3,
             'name' => 'three'
         ]);
 
-        Userprofile::create([
+        UserProfile::create([
             'user_id' => 4,
             'name' => 'four'
         ]);

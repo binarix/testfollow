@@ -7,7 +7,7 @@
     @foreach ($followings as $following)
         <p>
         $following->email = {{ $following->email }}<br/>
-        $following->userprofile->name = {{ $following->userprofile->name }}
+        $following->userProfile->name = {{ $following->userProfile->name }}
         </p>
     @endforeach
 @endif
